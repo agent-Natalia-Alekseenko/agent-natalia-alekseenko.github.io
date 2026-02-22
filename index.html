@@ -362,7 +362,53 @@ footer {
     </div>
   </div>
 </section>
+<section class="lead">
+  <h2 class="section-title">Оставить заявку</h2>
+  <p class="section-subtitle">Напишите в двух словах — я быстро отвечу</p>
 
+  <form class="lead-form" onsubmit="return sendToTelegram(event)">
+    <input name="name" type="text" placeholder="Ваше имя" required />
+    <input name="phone" type="tel" placeholder="Телефон (+7...)" required />
+    <select name="service" required>
+      <option value="" disabled selected>Что нужно застраховать?</option>
+      <option>ОСАГО</option>
+      <option>КАСКО</option>
+      <option>Имущество</option>
+      <option>Путешествия</option>
+      <option>Жизнь/здоровье</option>
+      <option>Другое</option>
+    </select>
+    <textarea name="comment" placeholder="Комментарий (необязательно)" rows="4"></textarea>
+
+    <button type="submit" class="btn">Отправить в Telegram</button>
+    <p class="hint">После нажатия откроется Telegram. Просто нажмите “Отправить”.</p>
+  </form>
+</section>
+
+<script>
+  function sendToTelegram(e) {
+    e.preventDefault();
+    const f = e.target;
+
+    const name = f.name.value.trim();
+    const phone = f.phone.value.trim();
+    const service = f.service.value.trim();
+    const comment = f.comment.value.trim();
+
+    const text =
+      `Заявка с сайта:%0A` +
+      `Имя: ${encodeURIComponent(name)}%0A` +
+      `Телефон: ${encodeURIComponent(phone)}%0A` +
+      `Услуга: ${encodeURIComponent(service)}%0A` +
+      (comment ? `Комментарий: ${encodeURIComponent(comment)}%0A` : ``);
+
+    // Открываем диалог с ботом/аккаунтом и подставляем текст
+    const url = `https://t.me/StrahovkaNatalia_Bot?text=${text}`;
+    window.open(url, "_blank");
+    return false;
+  }
+</script>
+  
 <section class="contacts">
   <h2 class="section-title">Контакты</h2>
   <p class="section-subtitle">Свяжитесь удобным способом</p>
