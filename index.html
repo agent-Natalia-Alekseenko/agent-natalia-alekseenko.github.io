@@ -1,441 +1,468 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Наталия Алексеенко — Страховой агент</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-dark: #0a0e1a;
-  --bg-card: #0f1629;
-  --bg-card-hover: #151d35;
-  --accent-blue: #2563eb;
-  --accent-light: #3b82f6;
-  --accent-cyan: #22d3ee;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --border: rgba(37, 99, 235, 0.3);
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Наталия Алексеенко — страховой агент</title>
+  <meta name="description" content="ОСАГО, КАСКО, имущество, путешествия. Консультация, расчёт после уточнения данных, сопровождение при страховом случае." />
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  <style>
+    :root{
+      --bg0:#06081a;
+      --bg1:#08102a;
+      --bg2:#0b1d4a;
+      --text:#f8fafc;
+      --muted:rgba(248,250,252,.78);
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.12);
+      --accent:#2c5cff;
+      --accent2:#1a43d6;
+      --shadow:0 24px 70px rgba(0,0,0,.38);
+      --r:18px;
+      --max:1100px;
+    }
 
-/* Hero */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: 
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-    linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark) 100%);
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 700px at 70% 30%, rgba(44,92,255,.22), transparent 62%),
+        radial-gradient(900px 700px at 30% 62%, rgba(44,92,255,.14), transparent 68%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg0));
+      overflow-x:hidden;
+    }
 
-.hero h1 {
-  font-size: clamp(36px, 8vw, 56px);
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-}
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .section{padding:34px 0}
 
-.hero .subtitle {
-  font-size: clamp(18px, 3vw, 24px);
-  color: var(--accent-cyan);
-  font-weight: 500;
-  margin-bottom: 40px;
-  letter-spacing: 0.05em;
-}
+    /* ===== HERO ===== */
+    .hero{position:relative; padding:54px 0 18px;}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-140px -140px -140px -140px;
+      background:
+        radial-gradient(760px 540px at 78% 40%, rgba(255,255,255,.12), transparent 62%),
+        radial-gradient(900px 700px at 70% 35%, rgba(44,92,255,.22), transparent 66%),
+        radial-gradient(900px 700px at 35% 60%, rgba(44,92,255,.12), transparent 72%);
+      pointer-events:none;
+    }
 
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .heroBox{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03));
+      border:1px solid var(--border);
+      border-radius: calc(var(--r) + 6px);
+      padding:28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 16px 32px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-}
+    .brand{display:flex; gap:12px; align-items:center; margin-bottom:18px; opacity:.96;}
+    .mark{
+      width:34px; height:34px; border-radius:10px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.20), transparent 58%),
+        linear-gradient(145deg, rgba(44,92,255,.55), rgba(26,67,214,.45));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 10px 30px rgba(44,92,255,.16);
+    }
+    .brandText{font-weight:600; line-height:1.1; font-size:14px; color:rgba(248,250,252,.86);}
 
-.btn-telegram {
-  background: linear-gradient(135deg, #0088cc 0%, #229ED9 100%);
-  color: white;
-  box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
-}
+    h1{margin:0; font-size:44px; line-height:1.05; letter-spacing:-.02em;}
+    .sub{margin:10px 0 0; font-size:22px; color:rgba(248,250,252,.86); font-weight:500;}
+    .tags{margin:18px 0 0; color:rgba(248,250,252,.82); font-size:16px; letter-spacing:.04em;}
+    .dots{opacity:.55; margin:0 8px}
 
-.btn-telegram:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 136, 204, 0.5);
-}
+    .lead{margin:18px 0 0; color:var(--muted); font-size:15px; line-height:1.55;}
 
-.btn-call {
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-light) 100%);
-  color: white;
-  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-}
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:22px;}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      text-decoration:none;
+      font-weight:600;
+      background: rgba(255,255,255,.06);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.26);}
+    .btn.primary{
+      background: linear-gradient(145deg, var(--accent), var(--accent2));
+      border-color: rgba(255,255,255,.18);
+      box-shadow:0 16px 45px rgba(44,92,255,.22);
+    }
+    .btn.primary:hover{background: linear-gradient(145deg, #3568ff, #1b49ef);}
+    .ico{width:18px; height:18px; display:inline-block; opacity:.95}
 
-.btn-call:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
-}
+    .portrait{
+      width:260px; max-width:100%;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 26px 70px rgba(0,0,0,.45);
+      overflow:hidden;
+      background: rgba(255,255,255,.04);
+    }
+    .portrait img{width:100%; height:auto; display:block;}
 
-/* Sections */
-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 24px;
-}
+    /* ===== TITLES ===== */
+    .title{font-size:24px; margin:0 0 14px; letter-spacing:-.01em;}
+    .subtitle{margin:0 0 20px; color:var(--muted); line-height:1.5; font-size:15px;}
 
-.section-title {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 16px;
-}
+    /* ===== INFO STRIP ===== */
+    .strip{
+      background: rgba(255,255,255,.045);
+      border:1px solid var(--border);
+      border-radius: var(--r);
+      padding:18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
+    }
+    .stripGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .pill{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      padding:14px;
+    }
+    .pill b{display:block; margin-bottom:6px}
+    .pill p{margin:0; color:rgba(248,250,252,.78); line-height:1.45; font-size:14px}
 
-.section-subtitle {
-  color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: 48px;
-  font-size: 18px;
-}
+    /* ===== SERVICES ===== */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--r);
+      padding:18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.20);
+    }
+    .card h3{margin:0 0 8px; font-size:16px; letter-spacing:-.01em;}
+    .card p{margin:0; color:rgba(248,250,252,.78); line-height:1.52; font-size:14px}
 
-/* Services */
-.services {
-  background: var(--bg-card);
-}
+    /* ===== HOW ===== */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .step{
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      padding:18px;
+    }
+    .num{
+      width:34px;height:34px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background: rgba(44,92,255,.18);
+      border:1px solid rgba(44,92,255,.28);
+      margin-bottom:10px;
+      font-weight:700;
+    }
+    .step b{display:block; margin-bottom:6px}
+    .step p{margin:0; color:rgba(248,250,252,.78); font-size:14px; line-height:1.5}
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-}
+    /* ===== REVIEWS ===== */
+    .reviews{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    .quote{
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      padding:18px;
+    }
+    .quote .who{opacity:.88; font-weight:600; margin-bottom:8px}
+    .quote .txt{margin:0; color:rgba(248,250,252,.78); line-height:1.55; font-size:14px}
 
-.service-card {
-  background: var(--bg-dark);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
+    /* ===== FOOTER ===== */
+    footer{
+      padding:22px 0 36px;
+      color:rgba(248,250,252,.55);
+      font-size:13px;
+    }
+    .footLink{
+      opacity:.8;
+      text-decoration:none;
+      border-bottom:1px dashed rgba(255,255,255,.25);
+    }
+    .footLink:hover{opacity:1}
 
-.service-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--accent-blue);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(37, 99, 235, 0.2);
-}
-
-.service-card .icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.service-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.service-card p {
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-/* Advantages */
-.advantages {
-  background: var(--bg-dark);
-}
-
-.advantages-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.advantage-item {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  padding: 28px;
-  background: var(--bg-card);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.advantage-item:hover {
-  border-color: var(--accent-blue);
-  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
-}
-
-.advantage-num {
-  width: 48px;
-  height: 48px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.advantage-item h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.advantage-item p {
-  color: var(--text-secondary);
-  font-size: 15px;
-}
-
-/* Contacts */
-.contacts {
-  background: var(--bg-card);
-}
-
-.contacts-inner {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contacts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px;
-  background: var(--bg-dark);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-  border-color: var(--accent-blue);
-}
-
-.contact-item a {
-  color: var(--accent-cyan);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 18px;
-}
-
-.contact-item a:hover {
-  color: var(--accent-light);
-}
-
-.contact-item .label {
-  color: var(--text-secondary);
-  font-size: 14px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 24px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  border-top: 1px solid var(--border);
-}
-</style>
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 880px){
+      .heroBox{grid-template-columns: 1fr; }
+      .portrait{width:240px;}
+      h1{font-size:38px}
+      .stripGrid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .reviews{grid-template-columns:1fr}
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <h1>Наталия Алексеенко</h1>
-  <p class="subtitle">Страховой агент</p>
-  <div class="hero-buttons">
-    <a href="https://t.me/StrahovkaNatalia_Bot" class="btn btn-telegram">Telegram</a>
-    <a href="tel:+79780208501" class="btn btn-call">Позвонить</a>
-    <p style="margin-top:10px; font-size:14px; color:#94a3b8;">
-        Рабочий телефон: 
-        <a href="tel:+79780208501" style="color:#3b82f6; text-decoration:none;">
-        +7 978 020-85-01
-        </a>
-        </p> </div>
-</header>
+  <!-- НАСТРОЙКИ (меняй здесь) -->
+  <script>
+    // Телефон (как договорились)
+    const PHONE_NUMBER_DISPLAY = "+7 978 020-85-01";
+    const PHONE_TEL = "+79780208501";
 
-<section class="services">
-  <h2 class="section-title">Услуги</h2>
-  <p class="section-subtitle">Подберу оптимальный вариант страховой защиты</p>
+    // ВАЖНО: вставь сюда СВОЮ ссылку на Telegram (профиль/чат)
+    // пример: "https://t.me/StrahovkaNatalia_Bot или "https://t.me/username"
+    const TELEGRAM_LINK = "https://t.me/StrahovkaNatalia_Bot";
 
-  <div class="services-grid">
+    // Файл фото (у тебя уже лежит в репозитории как photo.jpg)
+    const PHOTO_FILE = "photo.jpg";
+  </script>
 
-    <a href="https://t.me/StrahovkaNatalia_Bot?start=osago" class="service-card" target="_blank">
-      <div class="icon">🚗</div>
-      <h3>ОСАГО</h3>
-      <p>Обязательная автогражданка для всех водителей</p>
-    </a>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="heroBox">
+        <div>
+          <div class="brand">
+            <div class="mark" aria-hidden="true"></div>
+            <div class="brandText">Страховка<br>Наталья</div>
+          </div>
 
-    <a href="https://t.me/StrahovkaNatalia_Bot?start=kasko" class="service-card" target="_blank">
-      <div class="icon">🛡️</div>
-      <h3>КАСКО</h3>
-      <p>Добровольное страхование автомобиля</p>
-    </a>
+          <h1>Наталия Алексеенко</h1>
+          <div class="sub">Страховой агент</div>
 
-    <a href="https://t.me/StrahovkaNatalia_Bot?start=property" class="service-card" target="_blank">
-      <div class="icon">🏠</div>
-      <h3>Имущество</h3>
-      <p>Защита дома, квартиры и другого имущества</p>
-    </a>
+          <div class="tags">
+            ОСАГО <span class="dots">•</span> КАСКО <span class="dots">•</span> Имущество <span class="dots">•</span> Путешествия
+          </div>
 
-    <a href="https://t.me/StrahovkaNatalia_Bot?start=travel" class="service-card" target="_blank">
-      <div class="icon">✈️</div>
-      <h3>Путешествия</h3>
-      <p>Страховка для поездок за границу</p>
-    </a>
+          <p class="lead">
+            Сначала уточняем данные, затем я готовлю расчёт.<br>
+            Сопровождаю при страховом случае.
+          </p>
 
-    <a href="https://t.me/StrahovkaNatalia_Bot?start=life" class="service-card" target="_blank">
-      <div class="icon">❤️</div>
-      <h3>Жизнь</h3>
-      <p>Страхование жизни и здоровья</p>
-    </a>
+          <div class="cta">
+            <a class="btn primary" id="btnTg" href="#">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M21.8 4.6 2.9 11.8c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.7c.2.6.1.8.8.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.2-15.1c.3-1.2-.4-1.7-1.3-1.3Z" fill="currentColor" opacity=".95"/>
+              </svg>
+              Написать в Telegram
+            </a>
 
-  </div>
-</section>
-<section class="advantages">
-  <h2 class="section-title">Преимущества</h2>
-  <p class="section-subtitle">Почему стоит обратиться ко мне</p>
-  <div class="advantages-grid">
-    <div class="advantage-item">
-      <span class="advantage-num">1</span>
-      <div>
-        <h3>Быстрое оформление</h3>
-        <p>Электронные полисы за считанные минуты без визита в офис</p>
+            <a class="btn" id="btnCall" href="#">
+              <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.6 10.5c1.5 2.9 4 5.3 6.8 6.8l2.3-2.3c.3-.3.8-.4 1.2-.2 1 .4 2 .6 3.1.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4c0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.1.2 2.1.6 3.1.1.4 0 .9-.3 1.2l-2.3 2.2Z" fill="currentColor" opacity=".95"/>
+              </svg>
+              Позвонить
+            </a>
+
+            <a class="btn" href="#services">Услуги</a>
+            <a class="btn" href="#reviews">Отзывы</a>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:center;">
+          <div class="portrait">
+            <img id="heroPhoto" alt="Наталия Алексеенко" src="photo.jpg">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="advantage-item">
-      <span class="advantage-num">2</span>
-      <div>
-        <h3>Сравнение цен</h3>
-        <p>Подбираю лучшие предложения от надёжных страховых компаний</p>
+  </header>
+
+  <!-- STRIP: что нужно для расчёта / как работаем -->
+  <section class="section">
+    <div class="wrap">
+      <div class="strip">
+        <div class="stripGrid">
+          <div class="pill">
+            <b>Для расчёта мне нужно</b>
+            <p>
+              • место регистрации собственника<br>
+              • данные на автомобиль<br>
+              • данные на водителей
+            </p>
+          </div>
+          <div class="pill">
+            <b>Как это происходит</b>
+            <p>
+              Вы присылаете данные/фото документов → я делаю расчёт → выбираем вариант → оформляем.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="advantage-item">
-      <span class="advantage-num">3</span>
-      <div>
-        <h3>Консультация 24/7</h3>
-        <p>Отвечаю на вопросы и помогаю в удобное для вас время</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="wrap">
+      <h2 class="title">Услуги</h2>
+      <p class="subtitle">То, что ты прислала из Яндекса — аккуратно “вшито” карточками, без перегруза.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Бесплатная консультация страхового агента</h3>
+          <p>Бесплатная консультация. Помогаю выбрать оптимальную страховую программу под вашу ситуацию. Честный разбор вариантов: не только «дешевле», но и риски, ограничения, реальные плюсы и минусы. Объясняю простым языком, без навязывания. Работаю по Крыму и всей России.</p>
+        </div>
+
+        <div class="card">
+          <h3>ОСАГО без навязывания (физ. и юр. лица)</h3>
+          <p>Оформление ОСАГО для физических и юридических лиц. Стоимость зависит от региона и ТС, КБМ водителей. Консультация и расчёт бесплатно. Доп. защита — только при желании клиента.</p>
+        </div>
+
+        <div class="card">
+          <h3>КАСКО — индивидуальный подбор</h3>
+          <p>Подбор оптимального КАСКО под ваш автомобиль. Учитываю бюджет и реальные риски. Без лишних услуг и навязывания. Персональный подход вместо «потока».</p>
+        </div>
+
+        <div class="card">
+          <h3>ВЗР — страховка для поездок</h3>
+          <p>Страхование для поездок по России и за границу. Цена зависит от возраста, страны и срока поездки. Помогаю выбрать подходящий вариант (без лишней персональной информации в полисе, если это важно).</p>
+        </div>
+
+        <div class="card">
+          <h3>Страхование квартиры и дома</h3>
+          <p>Защита квартиры, дома и ответственности перед соседями. Подбор программы под вашу ситуацию. Консультация бесплатно.</p>
+        </div>
+
+        <div class="card">
+          <h3>Помощь и сопровождение при ДТП</h3>
+          <p>Подскажу, как правильно действовать после ДТП. Помогу избежать ошибок и перекупов. Помощь в оформлении европротокола. Объясню, когда нужно вызывать ГИБДД. Консультация по телефону и онлайн.</p>
+        </div>
+
+        <div class="card">
+          <h3>Проверка и анализ страхового полиса</h3>
+          <p>Проверю действующий полис перед продлением. Подскажу, где переплата или риски. Без обязательств.</p>
+        </div>
+
+        <div class="card">
+          <h3>Страхование имущества бизнеса и ИП</h3>
+          <p>Страхование имущества юридических лиц и ИП. Индивидуальный подбор условий. Консультация бесплатно.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<section class="lead">
-  <h2 class="section-title">Оставить заявку</h2>
-  <p class="section-subtitle">Напишите в двух словах — я быстро отвечу</p>
+  </section>
 
-  <form class="lead-form" onsubmit="return sendToTelegram(event)">
-    <input name="name" type="text" placeholder="Ваше имя" required />
-    <input name="phone" type="tel" placeholder="Телефон (+7...)" required />
-    <select name="service" required>
-      <option value="" disabled selected>Что нужно застраховать?</option>
-      <option>ОСАГО</option>
-      <option>КАСКО</option>
-      <option>Имущество</option>
-      <option>Путешествия</option>
-      <option>Жизнь/здоровье</option>
-      <option>Другое</option>
-    </select>
-    <textarea name="comment" placeholder="Комментарий (необязательно)" rows="4"></textarea>
+  <!-- HOW -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="title">Как я работаю</h2>
+      <p class="subtitle">Коротко и по делу — без «мгновенно» и без обещаний, которые раздражают.</p>
 
-    <button type="submit" class="btn">Отправить в Telegram</button>
-    <p class="hint">После нажатия откроется Telegram. Просто нажмите “Отправить”.</p>
-  </form>
-</section>
-
-<script>
-  function sendToTelegram(e) {
-    e.preventDefault();
-    const f = e.target;
-
-    const name = f.name.value.trim();
-    const phone = f.phone.value.trim();
-    const service = f.service.value.trim();
-    const comment = f.comment.value.trim();
-
-    const text =
-      `Заявка с сайта:%0A` +
-      `Имя: ${encodeURIComponent(name)}%0A` +
-      `Телефон: ${encodeURIComponent(phone)}%0A` +
-      `Услуга: ${encodeURIComponent(service)}%0A` +
-      (comment ? `Комментарий: ${encodeURIComponent(comment)}%0A` : ``);
-
-    // Открываем диалог с ботом/аккаунтом и подставляем текст
-    const url = `https://t.me/StrahovkaNatalia_Bot?text=${text}`;
-    window.open(url, "_blank");
-    return false;
-  }
-</script>
-  
-<section class="contacts">
-  <h2 class="section-title">Контакты</h2>
-  <p class="section-subtitle">Свяжитесь удобным способом</p>
-  <div class="contacts-inner">
-    <div class="contacts-list">
-      
-      <div class="contact-item">
-        <span class="label">Telegram:</span>
-        <a href="https://t.me/StrahovkaNatalia_Bot" target="_blank">
-          @StrahovkaNatalia_Bot
-        </a>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <b>Уточняем данные</b>
+          <p>Регистрация собственника, авто, водители — этого достаточно, чтобы корректно посчитать.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <b>Готовлю расчёт</b>
+          <p>Показываю варианты и объясняю нюансы: риски, ограничения, что реально важно.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <b>Оформление и сопровождение</b>
+          <p>Оформляем выбранный вариант. При страховом случае — подскажу порядок действий.</p>
+        </div>
       </div>
-
-      <div class="contact-item">
-        <span class="label">Телефон:</span>
-        <a href="tel:+79780208501">
-          +7 978 020-85-01
-        </a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2025 Наталия Алексеенко. Страховой агент.
-</footer>
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <div class="wrap">
+      <h2 class="title">Отзывы</h2>
+      <p class="subtitle">Пара свежих и пара “старых добрых” — чтобы было видно стабильность.</p>
+
+      <div class="reviews">
+        <div class="quote">
+          <div class="who">Сергей С. · 24.02.2026</div>
+          <p class="txt">«Обратился в праздничный день — страховые по городу не работали. В свой выходной сделали страховку на авто. Всё быстро и оперативно. Отношение как к родному!»</p>
+        </div>
+
+        <div class="quote">
+          <div class="who">lovely.acid · 30.01.2026</div>
+          <p class="txt">«Специалисты на высшем уровне, не первый раз оформляем страховку. Очень вежливое обращение и агент всегда на стороне клиента!»</p>
+        </div>
+
+        <div class="quote">
+          <div class="who">Серёжа П. · 19.01.2026</div>
+          <p class="txt">«Отличная страховая. Уже не первый год делаю страховку на машины. Всё подробно и грамотно объясняют. Рекомендую!»</p>
+        </div>
+
+        <div class="quote">
+          <div class="who">Михаил С. · 14.10.2024</div>
+          <p class="txt">«Делаю ОСАГО не первый раз, очень доволен обслуживанием. Взял за правило делать мини-КАСКО — мелочь, а приятно. Спасибо, что вы есть!»</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="yy"></span> Наталия Алексеенко</div>
+      <div style="margin-top:8px;">
+        Телефон: <a class="footLink" id="footPhone" href="#"> <span id="footPhoneText"></span></a>
+        · Telegram: <a class="footLink" id="footTg" href="#">написать</a>
+      </div>
+
+      <!-- Если хочешь убрать ссылку сайта совсем — просто удали следующий div -->
+      <div style="margin-top:8px;">
+        Сайт: <a class="footLink" href="https://agent-natalia-alekseenko.github.io" target="_blank" rel="noopener">agent-natalia-alekseenko.github.io</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Проставляем ссылки/тексты из "НАСТРОЙКИ"
+    document.getElementById("yy").textContent = new Date().getFullYear();
+
+    const btnTg = document.getElementById("btnTg");
+    const btnCall = document.getElementById("btnCall");
+    const footTg = document.getElementById("footTg");
+    const footPhone = document.getElementById("footPhone");
+    const footPhoneText = document.getElementById("footPhoneText");
+    const heroPhoto = document.getElementById("heroPhoto");
+
+    btnTg.href = TELEGRAM_LINK;
+    btnTg.target = "_blank";
+    btnTg.rel = "noopener";
+
+    footTg.href = TELEGRAM_LINK;
+    footTg.target = "_blank";
+    footTg.rel = "noopener";
+
+    btnCall.href = "tel:" + PHONE_TEL;
+    footPhone.href = "tel:" + PHONE_TEL;
+    footPhoneText.textContent = PHONE_NUMBER_DISPLAY;
+
+    heroPhoto.src = PHOTO_FILE;
+  </script>
 
 </body>
 </html>
